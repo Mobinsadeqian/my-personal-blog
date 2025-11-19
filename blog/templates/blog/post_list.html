@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2 class="mb-4 text-secondary">📝 آخرین نوشته‌ها</h2>
+    
+    {% for post in posts %}
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title h4 text-primary">{{ post.title }}</h3>
+                <p class="text-muted small">{{ post.created_at|date:"j F Y - H:i" }}</p>
+                <p class="card-text text-dark">{{ post.body|truncatewords:30 }}</p>
+                
+                <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-outline-primary btn-sm">
+                    ادامه مطلب &larr;
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
