@@ -11,8 +11,10 @@ class Post(models.Model):
 
 class Comment(models.Model):
     # باید post (حرف کوچک) باشد
-    post = models.ForeignKey( 
-        'Post', on_delete=models.CASCADE, related_name='comments'
+    post = models.ForeignKey( # ⚠️ این فیلد باید post با حرف کوچک باشد
+        'Post', 
+        on_delete=models.CASCADE, 
+        related_name='comments' # ⬅️ این نام باید دقیقا "comments" باشد
     )
     name = models.CharField(max_length=200)
     email = models.EmailField(blank=True)

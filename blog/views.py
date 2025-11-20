@@ -12,7 +12,7 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     
     # 1. گرفتن کامنت‌های فعال برای نمایش
-    comments = post.comments.filter(active=True)
+    comments = post.comments.all().filter(active=True) # ✅ جایگزین احتمالی
     
     new_comment = None
     
