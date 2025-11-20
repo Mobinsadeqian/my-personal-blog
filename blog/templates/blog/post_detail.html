@@ -3,15 +3,53 @@
 {% block content %}
     <div class="card shadow-lg border-0">
         <div class="card-body p-5">
+            
             <h1 class="display-5 fw-bold text-dark mb-3">{{ post.title }}</h1>
+            
             <div class="text-muted mb-4 border-bottom pb-2">
                 <small>📅 تاریخ انتشار: {{ post.created_at|date:"j F Y" }}</small>
             </div>
             
-            <div class="card-text fs-5 lh-lg">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" class="img-fluid rounded mb-4" alt="{{ post.title }}">
+            {% endif %}
+
+            <div class="card-text fs-5 lh-lg mb-5">
                 {{ post.body|linebreaks }}
             </div>
+            
+            <h4 class="mt-5 border-top pt-4">نظرات ({{ comments.count }})</h4>
 
+            {% for comment in comments %}
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <p class="mb-1 fw-bold">{{ comment.name }}</p>
+                        <small class="text-muted">در تاریخ {{ comment.created_on|date:"j F Y" }}</small>
+                        <p class="mt-2">{{ comment.body }}</p>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-muted">هنوز نظری ثبت نشده است.</p>
+            {% endfor %}
+
+            <h4 class="mt-5 border-top pt-4">نظر خود را ثبت کنید</h4>
+            
+            <form method="post">
+                {% csrf_token %} 
+                
+                {% for field in comment_form %}
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="text-danger small">{{ field.errors }}</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                
+                <button type="submit" class="btn btn-primary mt-3">ارسال نظر</button>
+            </form>
+            
             <div class="mt-5 pt-3 border-top">
                 <a href="{% url 'post_list' %}" class="btn btn-secondary">
                     🏠 بازگشت به لیست
