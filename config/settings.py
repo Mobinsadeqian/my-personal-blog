@@ -132,3 +132,22 @@ MEDIA_ROOT = BASE_DIR / "media"
 # آدرس URL که فایل‌های آپلود شده با آن قابل دسترسی هستند
 MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'], # 👈 دکمه‌های وسط‌چین و ...
+            ['Link', 'Unlink'],
+            ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar'], # 👈 دکمه ایموجی و عکس
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'], # 👈 دکمه‌های رنگ
+            ['Maximize', 'Source'], # دکمه تمام صفحه
+        ],
+        'width': 'auto',
+        # اگر می‌خواهی ادیتور زبان فارسی را بهتر پشتیبانی کند:
+        'language': 'fa', 
+    }
+}
