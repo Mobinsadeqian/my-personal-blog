@@ -15,7 +15,7 @@
             {% endif %}
 
             <div class="card-text fs-5 lh-lg mb-5">
-                {{ post.body|linebreaks }}
+                {{ post.body|safe }}
             </div>
             
             <h4 class="mt-5 border-top pt-4">نظرات ({{ comments.count }})</h4>
