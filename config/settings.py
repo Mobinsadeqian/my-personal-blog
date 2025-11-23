@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'ckeditor_uploader',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,4 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 # آدرس URL که فایل‌های آپلود شده با آن قابل دسترسی هستند
 MEDIA_URL = '/media/'
+CKEDITOR_UPLOAD_PATH = "uploads/"
