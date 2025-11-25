@@ -1,21 +1,148 @@
 {% extends 'blog/base.html' %}
+
 {% block content %}
-    <head>درباره من</head>
-    <h1>از من بیشتر بدونین</h1>
-    <p>
-        من مبینم؛ یه گیک و عاشق تکنولوژی؛ یه خبرنگار و البته یه بچه برنامه نویسم
-    </p>
-    <p>
-        این هم اولین سایت من هس که با جنگو درستش کردم؛ درسته شاید خیلی ساده به نظر برسه ولی خودم خیلی دوستش دارم
-    </p>
-    <p>
-        البته قبلا هم یه ربات تلگرامی ساخته بودم که هر دوی این ها توی گیت هابم هس و میتونین به اونجا سر بزنین...البته راهای دیگه ای هم هس واسه ارتباط با من که این پایین آوردم
-    </p>
-    <h2>
-        ارتباط با من
-    </h2>
-    <p><a href="https://github.com/Mobinsadeqian/">گیت هاب </a></p>
-    <p><a href="https://x.com/mobinsadeqian">ایکس</a></p>
-    <p><a href="@Mobinsadeqian">تلگرام</a></p>
-    <P><a href="mobinsadeghian2003@gmail.com">ایمیل</a></P>
-{% endblock %}    
+<style>
+    /* تنظیم فونت برای خوانایی بهتر در فارسی */
+    body {
+        font-family: Tahoma, Arial, sans-serif;
+    }
+    .about-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        transition: transform 0.3s ease;
+    }
+    .about-card:hover {
+        transform: translateY(-5px);
+    }
+    .profile-section {
+        background: linear-gradient(45deg, #007bff, #0056b3); /* گرادیانت آبی جذاب */
+        color: white;
+        border-radius: 15px;
+        padding: 40px;
+        margin-bottom: 30px;
+    }
+    .profile-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+    .contact-card {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+    .contact-card:hover {
+        background-color: #e9ecef;
+    }
+    .contact-icon {
+        font-size: 2rem;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+    .contact-link {
+        font-weight: 600;
+        color: #343a40;
+        text-decoration: none;
+    }
+</style>
+
+<div class="container my-5">
+    
+    <!-- بخش معرفی و عنوان اصلی (Hero Section) -->
+    <div class="profile-section text-center">
+        <h1 class="profile-title mb-3">از مبین بیشتر بدانید</h1>
+        <p class="lead">
+            «من مبینم؛ یه گیک و عاشق تکنولوژی؛ یه خبرنگار و البته یه بچه‌برنامه‌نویس»
+        </p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card about-card">
+                <div class="card-body">
+                    
+                    <!-- بخش داستان من -->
+                    <h2 class="card-title text-primary mb-4 border-bottom pb-2">
+                        <i class="fas fa-code me-2"></i> داستان برنامه‌نویسی من
+                    </h2>
+                    
+                    <p class="mb-4 fs-5 text-muted">
+                        این هم اولین سایت من هس که با جنگو درستش کردم؛ درسته شاید خیلی ساده به نظر برسه ولی خودم خیلی دوستش دارم.
+                    </p>
+                    
+                    <p class="mb-4 fs-5 text-muted">
+                        البته قبلا هم یه ربات تلگرامی ساخته بودم که هر دوی این‌ها توی گیت‌هابم هس و میتونین به اونجا سر بزنین.
+                    </p>
+
+                    <hr class="my-5">
+
+                    <!-- بخش راه‌های ارتباطی -->
+                    <h2 class="card-title text-success mb-4 border-bottom pb-2">
+                        <i class="fas fa-handshake me-2"></i> ارتباط با من
+                    </h2>
+
+                    <div class="row g-4">
+                        
+                        <!-- گیت هاب -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="contact-card shadow-sm">
+                                <div class="contact-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <a href="https://github.com/Mobinsadeqian/" class="contact-link">
+                                    گیت هاب
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- ایکس (توییتر) -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="contact-card shadow-sm">
+                                <div class="contact-icon">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                                <a href="https://x.com/mobinsadeqian" class="contact-link">
+                                    ایکس (توییتر)
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- تلگرام -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="contact-card shadow-sm">
+                                <div class="contact-icon">
+                                    <i class="fab fa-telegram-plane"></i>
+                                </div>
+                                <a href="https://t.me/Mobinsadeqian" class="contact-link">
+                                    تلگرام
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- ایمیل -->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="contact-card shadow-sm">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <a href="mailto:mobinsadeghian2003@gmail.com" class="contact-link">
+                                    ایمیل
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- نیاز به لینک Font Awesome برای نمایش آیکون‌ها -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+{% endblock %}
